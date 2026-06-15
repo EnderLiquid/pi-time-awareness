@@ -1,7 +1,7 @@
 {
   "name": "pi-time-awareness",
   "version": "0.1.0",
-  "description": "Low-noise time anchors and an exact time tool for the Pi coding agent.",
+  "description": "Give Pi a lightweight sense of time with low-noise anchors and exact time on demand.",
   "type": "module",
   "license": "MIT",
   "author": "EnderLiquid",
