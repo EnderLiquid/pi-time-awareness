@@ -1,0 +1,43 @@
+{
+  "name": "pi-time-awareness",
+  "version": "0.1.0",
+  "description": "Low-noise time anchors and an exact time tool for the Pi coding agent.",
+  "type": "module",
+  "license": "MIT",
+  "author": "EnderLiquid",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "pi-coding-agent",
+    "time",
+    "time-anchor",
+    "timezone"
+  ],
+  "files": [
+    "extensions",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": "./extensions/pi-time-awareness.ts"
+  },
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "dependencies": {
+    "typebox": "^1.1.38"
+  },
+  "scripts": {
+    "test:types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  }
+}
