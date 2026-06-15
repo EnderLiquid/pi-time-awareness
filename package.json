@@ -1,6 +1,6 @@
 {
   "name": "pi-time-awareness",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Give Pi a lightweight sense of time with low-noise anchors and exact time on demand.",
   "type": "module",
   "license": "MIT",
@@ -32,6 +32,14 @@
   },
   "dependencies": {
     "typebox": "^1.1.38"
+  },
+  "homepage": "https://github.com/EnderLiquid/pi-time-awareness#readme",
+  "bugs": {
+    "url": "https://github.com/EnderLiquid/pi-time-awareness/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnderLiquid/pi-time-awareness.git"
   },
   "scripts": {
     "test:types": "tsc --noEmit"
