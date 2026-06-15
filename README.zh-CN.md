@@ -1,6 +1,6 @@
 # Pi Time Awareness
 
-[English](./README.md) | 简体中文
+[English](README.md) | 简体中文
 
 长会话里，时间往往是最先从上下文里变模糊的东西。
 

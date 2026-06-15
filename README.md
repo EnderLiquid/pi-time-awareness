@@ -1,6 +1,6 @@
 # Pi Time Awareness
 
-English | [简体中文](./README.zh-CN.md)
+English | [简体中文](README.zh-CN.md)
 
 In long sessions, Time is often the first thing to become blurry in context.
 
