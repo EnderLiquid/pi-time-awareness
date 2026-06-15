@@ -1,6 +1,6 @@
 {
   "name": "pi-time-awareness",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Give Pi a lightweight sense of time with low-noise anchors and exact time on demand.",
   "type": "module",
   "license": "MIT",
