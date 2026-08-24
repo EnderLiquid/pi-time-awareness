@@ -1,6 +1,5 @@
 import { defineTool, type ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { Type } from "typebox";
-import { buildSystemPrompt } from "./shared/prompt.js";
 import { getLastTimeAnchorInjectedAt, shouldInjectTimeAnchor } from "./shared/state.js";
 import { buildTimeToolPayload, buildTimestampMessage } from "./shared/time.js";
 
@@ -9,9 +8,9 @@ const EMPTY_TOOL_PARAMS = Type.Object({});
 const timeTool = defineTool({
 	name: "time",
 	label: "Time",
-	description: "Get the exact current time. Use this when the precise current moment matters.",
+	description: "Get the exact current time in the runtime's local timezone. Use this whenever the precise current moment matters, including when the conversation contains earlier time anchors; do not infer \"now\" from those anchors. Returns a formatted display string and a Unix millisecond timestamp.",
 	promptSnippet: "Get the exact current time in the runtime's local timezone and return a display string plus a Unix millisecond timestamp.",
-	promptGuidelines: ["Call `time` when you need the precise current time. Do not infer \"now\" only from historical time anchors."],
+	promptGuidelines: ["The system provides a time anchor about once per hour. Call `time` when you need the exact current time; do not infer \"now\" from historical time anchors."],
 	parameters: EMPTY_TOOL_PARAMS,
 	async execute() {
 		const payload = buildTimeToolPayload(Date.now());
@@ -25,17 +24,13 @@ const timeTool = defineTool({
 export default function piTimeAwareness(pi: ExtensionAPI): void {
 	pi.registerTool(timeTool);
 
-	pi.on("before_agent_start", async (event, ctx) => {
-		const systemPrompt = buildSystemPrompt(event.systemPrompt);
+	pi.on("before_agent_start", (_event, ctx) => {
 		const lastInjectedAt = getLastTimeAnchorInjectedAt(ctx.sessionManager.getBranch());
 		const now = Date.now();
 
-		if (!shouldInjectTimeAnchor(lastInjectedAt, now)) {
-			return { systemPrompt };
-		}
+		if (!shouldInjectTimeAnchor(lastInjectedAt, now)) return;
 
 		return {
-			systemPrompt,
 			message: buildTimestampMessage(now),
 		};
 	});

@@ -1,6 +1,6 @@
 {
   "name": "pi-time-awareness",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Give Pi a lightweight sense of time with low-noise anchors and exact time on demand.",
   "type": "module",
   "license": "MIT",
@@ -28,7 +28,7 @@
     ]
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": "*"
+    "@earendil-works/pi-coding-agent": ">=0.84.0"
   },
   "dependencies": {
     "typebox": "^1.1.38"
@@ -45,6 +45,7 @@
     "test:types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@earendil-works/pi-coding-agent": "0.84.2",
     "@types/node": "^24.10.0",
     "typescript": "^5.9.3"
   }
